@@ -117,4 +117,3 @@ all.config
 fips_fmp_utils
 security/selinux_n/av_permissions.h
 security/selinux_n/flask.h
-
