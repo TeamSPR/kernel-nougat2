@@ -1757,7 +1757,9 @@ static void binder_transaction(struct binder_proc *proc,
 	list_add_tail(&tcomplete->entry, &thread->todo);
 	if (target_wait) {
 		if (reply || !(t->flags & TF_ONE_WAY)) {
+			preempt_disable();
 			wake_up_interruptible_sync(target_wait);
+			sched_preempt_enable_no_resched();
 		}
 		else {
 			wake_up_interruptible(target_wait);
@@ -1809,7 +1811,8 @@ err_no_context_mgr_node:
 		thread->return_error = return_error;
 }
 
-int binder_thread_write(struct binder_proc *proc, struct binder_thread *thread,
+static int binder_thread_write(struct binder_proc *proc,
+			struct binder_thread *thread,
 			binder_uintptr_t binder_buffer, size_t size,
 			binder_size_t *consumed)
 {
@@ -2176,8 +2179,8 @@ int binder_thread_write(struct binder_proc *proc, struct binder_thread *thread,
 	return 0;
 }
 
-void binder_stat_br(struct binder_proc *proc, struct binder_thread *thread,
-		    uint32_t cmd)
+static void binder_stat_br(struct binder_proc *proc,
+			   struct binder_thread *thread, uint32_t cmd)
 {
 	trace_binder_return(cmd);
 	if (_IOC_NR(cmd) < ARRAY_SIZE(binder_stats.br)) {
