@@ -64,6 +64,14 @@
 #include <uapi/linux/module.h>
 #include "module-internal.h"
 
+#ifdef CONFIG_TIMA_LKMAUTH
+#ifndef CONFIG_TIMA_LKMAUTH_CODE_PROT
+#define CONFIG_TIMA_LKMAUTH_CODE_PROT y
+#endif
+#else
+#undef CONFIG_TIMA_LKMAUTH_CODE_PROT
+#endif
+
 #ifdef	CONFIG_TIMA_LKMAUTH_CODE_PROT
 #include <asm/tlbflush.h>
 #endif/*CONFIG_TIMA_LKMAUTH_CODE_PROT*/
