@@ -1,5 +1,8 @@
 # Change Log
 
+## [v6.00](https://github.com/TeamSPR/kernel-nougat/releases/tag/v6.00) (2017-12-06)
+[Full Changelog](https://github.com/TeamSPR/kernel-nougat/compare/v5.02...v6.00)
+
 ## [v5.02](https://github.com/TeamSPR/kernel-nougat/releases/tag/v5.02) (2017-07-17)
 [Full Changelog](https://github.com/TeamSPR/kernel-nougat/compare/v5.01...v5.02)
 
