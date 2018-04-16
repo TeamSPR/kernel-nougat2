@@ -398,7 +398,7 @@ static int cpufreq_nexus_task(void *data)
 		ret = cpufreq_nexus_timer(cpuinfo, policy, tunables, 0 /* is_stopping */);
 
 		/* wait */
-		usleep(tunables->timer_rate);
+		msleep(tunables->timer_rate);
 	}
 
 	/* prepare cpu for sleep */
