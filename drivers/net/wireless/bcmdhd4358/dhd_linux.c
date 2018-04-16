@@ -1511,7 +1511,6 @@ static int dhd_set_suspend(int value, dhd_pub_t *dhd)
 #endif
 
 	/* wl_pkt_filter_enable_t	enable_parm; */
-	char iovbuf[32];
 #ifdef CONFIG_BCMDHD_WIFI_PM
 	int bcn_li_dtim = dtim_awake; /* Default bcn_li_dtim in resume mode is 0 but honor the override instead */
 #else
