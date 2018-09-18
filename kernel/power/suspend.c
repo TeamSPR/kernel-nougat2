@@ -13,6 +13,7 @@
 #include <linux/errno.h>
 #include <linux/init.h>
 #include <linux/console.h>
+#include <linux/cpuidle.h>
 #include <linux/cpu.h>
 #include <linux/syscalls.h>
 #include <linux/gfp.h>
